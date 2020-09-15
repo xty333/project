@@ -1,0 +1,25 @@
+@mixin border1px($color){
+    position: relative;
+    &::before { //&代表调用这个方法的元素
+        content: ""; //用伪元素来写1px的线
+        position: absolute;
+        top:0;
+        left:0;
+        height:1px;
+        width:100%;
+        background:$color;
+        // 像素比，让线还原高度
+        @media (-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5){
+            transform: scaleY(0.667);
+         }
+      
+         @media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2){
+          transform: scaleY(0.5);
+        }
+      
+       @media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
+          transform: scaleY(0.3333);
+       }
+
+    }   
+} 
